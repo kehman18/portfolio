@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="description" name="description" />
+    <meta name="google" content="notranslate" />
+    <meta
+      content="Mashup templates have been developed by Orson.io team"
+      name="author"
+    />
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./static/assets/apple-icon-180x180.png"
+    />
+    <link
+      rel="shortcut icon"
+      sizes="100x100"
+      href="./static/assets/favicon.jpg"
+    />
+
+    <title>Kehinde Adekola</title>
+
+    <link href="./static/main.3f6952e4.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="site-border-left"></div>
+    <div id="site-border-right"></div>
+    <div id="site-border-top"></div>
+    <div id="site-border-bottom"></div>
+
+    <header>
+      <nav class="navbar navbar-fixed-top navbar-default">
+        <div class="container">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#navbar-collapse"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="./index.html" title="">01 : Home</a></li>
+              <li><a href="./works.html" title="">02 : Works</a></li>
+              <li><a href="./about.html" title="">03 : About me</a></li>
+              <li><a href="./contact.html" title="">04 : Contact</a></li>
+            </ul>
+
+            <ul
+              class="nav navbar-nav navbar-right navbar-small visible-md visible-lg"
+            >
+              <li>
+                <a href="./work.html?project=project1" title="" class="active"
+                  >001</a
+                >
+              </li>
+              <li><a href="./work.html?project=project2" title="">002</a></li>
+              <li><a href="./work.html?project=project3" title="">003</a></li>
+              <li><a href="./work.html?project=project4" title="">004</a></li>
+              <li><a href="./work.html?project=project5" title="">005</a></li>
+              <li><a href="./work.html?project=project6" title="">006</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="section-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <img id="mainImage" class="img-responsive" alt="" />
+            <div class="card-container">
+              <div class="text-center">
+                <h1 id="projectTitle" class="h2"></h1>
+              </div>
+              <p>
+                <br />
+                Category: <span id="projectCategory"></span> <br />
+                Project date: <span id="projectDate"></span> <br />
+                Project URL: <a id="projectURL" href=""></a>
+              </p>
+              <p>
+                <b
+                  >"A designer knows he has achieved perfection not when there
+                  is nothing left to add, but when there is nothing left to take
+                  away"</b
+                >
+              </p>
+              <small class="pull-right">Antoine de Saint</small>
+            </div>
+          </div>
+
+          <div class="col-md-8 col-md-offset-2 section-container-spacer">
+            <div id="secondaryImagesContainer" class="row">
+              <!-- Dynamic image elements will be inserted here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function (event) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const project = urlParams.get("project");
+
+        const projects = {
+          project1: {
+            title: "A simple Landing Page",
+            category: "Web Development",
+            date: "July 2024",
+            url: "https://ediconf.pythonanywhere.com/",
+            mainImage: "./static/assets/images/work001-01.jpg",
+            secondaryImages: [
+              "./static/assets/images/work001-02.jpg",
+              "./static/assets/images/work001-03.jpg",
+            ],
+          },
+          project2: {
+            title: "Designs and Logos",
+            category: "Graphic Design and Logo Making",
+            date: "Jan - Jul 2024",
+            mainImage: "./static/assets/images/work001-01.jpg",
+            secondaryImages: [
+              "./static/assets/images/Des1.png",
+              "./static/assets/images/Des2.png",
+              "./static/assets/images/Des3.png",
+              "./static/assets/images/Des4.png",
+              "./static/assets/images/Des5.png",
+            ],
+          },
+          project3: {
+            title: "Vivamus vestibulum",
+            category: "Mobile App",
+            date: "September 2024",
+            url: "www.anotherexample.com",
+            mainImage: "./static/assets/images/work003-01.jpg",
+            secondaryImages: [
+              "./static/assets/images/work003-02.jpg",
+              "./static/assets/images/work003-03.jpg",
+              "./static/assets/images/work003-04.jpg",
+            ],
+          },
+        };
+
+        const selectedProject = projects[project];
+
+        if (selectedProject) {
+          document.getElementById("projectTitle").textContent =
+            selectedProject.title;
+          document.getElementById("projectCategory").textContent =
+            selectedProject.category;
+          document.getElementById("projectDate").textContent =
+            selectedProject.date;
+          document.getElementById("projectURL").textContent =
+            selectedProject.url;
+          document.getElementById("projectURL").href = selectedProject.url;
+          document.getElementById("mainImage").src = selectedProject.mainImage;
+
+          const container = document.getElementById("secondaryImagesContainer");
+
+          selectedProject.secondaryImages.forEach((imageSrc, index) => {
+            const colDiv = document.createElement("div");
+            colDiv.className = "col-xs-12 col-md-6";
+
+            const imgElement = document.createElement("img");
+            imgElement.src = imageSrc;
+            imgElement.className = "img-responsive";
+            imgElement.alt = `Image ${index + 1}`;
+
+            const pElement = document.createElement("p");
+            pElement.textContent = `Image ${index + 1}`;
+
+            colDiv.appendChild(imgElement);
+            colDiv.appendChild(pElement);
+            container.appendChild(colDiv);
+          });
+        } else {
+          document.getElementById("projectTitle").textContent =
+            "Project Not Found";
+        }
+      });
+    </script>
+
+    <script type="text/javascript" src="./static/main.70a66962.js"></script>
+  </body>
+</html>
