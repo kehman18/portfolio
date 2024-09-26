@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_mail import Mail, Message
-from dotenv import load_dotenv
-import os
+# from dotenv import load_dotenv
+# import os
 
 app = Flask(__name__)
 
@@ -9,9 +9,9 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-load_dotenv()
-app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+# load_dotenv()
+app.config['MAIL_USERNAME'] = 'kehindeadekola96@gmail.com'
+app.config['MAIL_PASSWORD'] = 'vgfoqejwlhijkftm'
 
 mail = Mail(app)
 
