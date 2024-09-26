@@ -1,14 +1,17 @@
 from flask import Flask, render_template, request, redirect, flash
 from flask_mail import Mail, Message
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 
 # Configure Flask-Mail
-app.config['MAIL_SERVER'] = 'smtp.your-email-provider.com'  # E.g., smtp.gmail.com for Gmail
-app.config['MAIL_PORT'] = 465  # Or 587 for TLS
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'kehindeadekola96@gmail.com'  # Replace with your email
-app.config['MAIL_PASSWORD'] = 'your-email-password'  # Replace with your email password
+load_dotenv()
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 
 mail = Mail(app)
 
@@ -42,10 +45,9 @@ def send_email(data):
     subject = data['subject']
     message = data['message']
 
-    # Compose the email
     msg = Message(subject=f"New Portfolio Message From {email}", 
-                  sender='your-email@example.com', 
-                  recipients=['your-email@example.com'])  # Email where you'd like to receive the messages
+                  sender='kehindeadekola96@gmail.com', 
+                  recipients=['kehindeadekola96@gmail.com'])
     msg.body = f"Subject: {subject}\n\nMessage: {message}\n\nFrom: {email}"
 
     # Send the email
