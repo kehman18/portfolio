@@ -52,6 +52,3 @@ def send_email(data):
 
     # Send the email
     mail.send(msg)
-
-if __name__ == '__main__':
-    app.run(debug=True)
