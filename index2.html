@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edify Conference</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='edify.ico') }}" />
+  <link href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("static/Background.png") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: "Poppins", sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="flex flex-row justify-center gap-5 md:gap-10 items-center md:p-4 p-2">
+      <div class="">
+        <figure class="">
+          <img src="/static/EDIFY_BG.png" alt="logo" draggable="false" class="w-[70px] md:w-[100px]" />
+        </figure>
+      </div>
+      <div class="self-center">
+        <h2 class="text-base md:text-3xl font-bold text-center block mx-auto">Welcome to Edify Conference 1.0</h2>
+      </div>
+    </div>
+    <div class="section-container">
+      <div class="">
+        <div class="flex flex-col items-center">
+          <div class="col-xs-12">
+            <div class="section-container-spacer text-center">
+              <h3 class="text-xl font-medium">Volunteer's Registration Form</h3>
+            </div>
+            <div class="">
+              <div class="col-md-10 col-md-offset-1">
+                <form action="submit_form" method="post" class="reveal-content" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="flex flex-col gap-4 mt-6">
+                      <!-- Existing Form Groups -->
+                      <div class="form-group">
+                        <input name="first name" type="text" class="bg-white border rounded px-2 outline-none py-3 md:w-full w-[90%] mx-3 text-black placeholder:text-black" id="first name" placeholder="First Name" required />
+                      </div>
+                      <div class="form-group">
+                        <input name="last name" type="text" class="bg-white border rounded px-2 outline-none py-3 md:w-full w-[90%] mx-3 text-black placeholder:text-black" id="last name" placeholder="Last Name" required />
+                      </div>
+                      <div class="form-group">
+                        <select name="sex" class="bg-white border rounded px-2 outline-none py-3 md:w-full w-[90%] mx-3 text-black placeholder:text-black" id="sex" required>
+                          <option value="" disabled selected>Sex</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <input name="email" type="email" class="bg-white border rounded px-2 outline-none py-3 md:w-full w-[90%] mx-3 text-black placeholder:text-black" id="email" placeholder="Email" required />
+                      </div>
+                      <div class="form-group">
+                        <input name="phone number" type="tel" class="bg-white border rounded px-2 outline-none py-3 md:w-full w-[90%] mx-3 text-black placeholder:text-black" id="phone number" placeholder="Phone Number (+234)" required />
+                      </div>
+                      <div class="form-group">
+                        <input name="Location" type="location" class="bg-white border rounded px-2 outline-none py-3 md:w-full w-[90%] mx-3 text-black placeholder:text-black" id="location" placeholder="What is your current location" required />
+                      </div>
+                      <div class="form-group">
+                        <label for="image_upload" class="block text-sm font-medium text-white mx-3">Upload your Image here</label>
+                        <input type="file" name="image_upload" id="image_upload" class="bg-white border rounded px-2 outline-none py-3 md:w-full w-[90%] mx-3 text-black placeholder:text-black" accept="image/*" required />
+                      </div>
+                      <div class="form-group">
+                        <textarea name="message" class="bg-white border rounded px-2 outline-none py-3 md:w-full w-[90%] mx-3 text-black placeholder:text-black" rows="5" placeholder="What are your Edify Expectations?" required></textarea>
+                      </div>
+                      <div class="w-full flex justify-center">
+                        <button type="submit" class="bg-blue-500 max-w-[300px] py-3 px-5 rounded active:scale-105 transition-all duration-300">Submit</button>
+                      </div>
+                    </div>
+                    <div class="flex items-center mt-4">
+                      <ul class="flex flex-col">
+                        <li class="flex flex-row items-center gap-1.5">
+                          <span class="fa-icon">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                          </span>
+                          <p>
+                            <a href="tel:+2348134045950" style="color: white">+234 813 404 5950</a>
+                          </p>
+                        </li>
+                        <li class="flex flex-row items-center gap-1.5">
+                          <span class="fa-icon">
+                            <i class="fa fa-at" aria-hidden="true"></i>
+                          </span>
+                          <p>
+                            <a href="mailto:officialedifyconference@gmail.com" style="color: white">theedifyconference@gmail.com</a>
+                          </p>
+                        </li>
+                        <li class="flex flex-row items-center gap-1.5">
+                          <span class="fa-icon">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                          </span>
+                          <p style="color: white">address</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
