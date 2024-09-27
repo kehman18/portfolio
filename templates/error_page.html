@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./static/assets/favicon.png" rel="icon" />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M3XNJ35R");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <title>404 Page Not Found</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto:900|Roboto+Mono:300,400,700");
+      @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #fff;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+        padding: 20px;
+      }
+
+      .container {
+        position: relative;
+        max-width: 600px;
+        width: 100%;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 180px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 0;
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in-out forwards;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin: 20px 0;
+        color: #333;
+        opacity: 0;
+        animation: fadeInUp 2s ease-in-out forwards;
+      }
+
+      p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 40px;
+        opacity: 0;
+        animation: fadeInUp 2.5s ease-in-out forwards;
+      }
+
+      a {
+        text-decoration: none;
+        background-color: #000;
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        opacity: 0;
+        animation: fadeInUp 3s ease-in-out forwards;
+      }
+
+      a:hover {
+        background-color: #333;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Floating animation */
+      @keyframes floating {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .illustration {
+        font-size: 120px;
+        color: #000;
+        margin-bottom: 20px;
+        animation: floating 4s infinite ease-in-out;
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in-out forwards,
+          floating 4s infinite ease-in-out 1.5s;
+      }
+
+      .stars {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: transparent;
+        z-index: -1;
+      }
+
+      .stars div {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: #000;
+        opacity: 0.8;
+        border-radius: 50%;
+        animation: twinkle 1.5s infinite ease-in-out;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 0.8;
+        }
+      }
+
+      .stars div:nth-child(1) {
+        top: 10%;
+        left: 20%;
+        animation-duration: 3s;
+      }
+      .stars div:nth-child(2) {
+        top: 30%;
+        left: 50%;
+        animation-duration: 4s;
+      }
+      .stars div:nth-child(3) {
+        top: 70%;
+        left: 30%;
+        animation-duration: 2.5s;
+      }
+      .stars div:nth-child(4) {
+        top: 80%;
+        left: 60%;
+        animation-duration: 3.5s;
+      }
+      .stars div:nth-child(5) {
+        top: 20%;
+        left: 80%;
+        animation-duration: 2.8s;
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 1200px) {
+        h1 {
+          font-size: 150px;
+        }
+
+        h2 {
+          font-size: 24px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+
+        .illustration {
+          font-size: 100px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        h1 {
+          font-size: 120px;
+        }
+
+        h2 {
+          font-size: 22px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+
+        .illustration {
+          font-size: 80px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 100px;
+        }
+
+        h2 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+
+        .illustration {
+          font-size: 70px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        h1 {
+          font-size: 80px;
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+
+        .illustration {
+          font-size: 60px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        h1 {
+          font-size: 60px;
+        }
+
+        h2 {
+          font-size: 16px;
+        }
+
+        p {
+          font-size: 12px;
+        }
+
+        .illustration {
+          font-size: 50px;
+        }
+
+        a {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="illustration">🚀</div>
+      <h1>404</h1>
+      <h2>Oh no! We lost this page!</h2>
+      <p>
+        The page you’re looking for might have floated off into space. Let’s get
+        you back on track.
+      </p>
+      <a href="/">Launch me back home</a>
+    </div>
+
+    <!-- Floating stars background -->
+    <div class="stars">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function (event) {
+        type();
+        movingBackgroundImage();
+      });
+    </script>
+
+    <script type="text/javascript" src="./static/main.70a66962.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M3XNJ35R"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>

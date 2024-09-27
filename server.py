@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask_mail import Mail, Message
 from dotenv import load_dotenv
 import os
+import re
 
 app = Flask(__name__)
 
@@ -39,16 +40,41 @@ def submit_form():
     else:
         return 'Something went wrong. Try again!'
 
+def validate_email(user_email):
+    '''this function is to validate the email address of the user'''
+    email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+
+    email_domain = ['gmail.com', 'yahoo.com', 'outlook.com', 'protonmail.com', 'icloud.com', 'zoho.com', 'aol.com', 'yandex.com']
+    
+    if user_email is None or not isinstance(user_email, str):
+        return 'Email is required'
+    
+    pattern_check = re.match(email_regex, user_email)
+    domain = user_email.split('@')[-1]
+
+    if pattern_check:
+        if domain in email_domain:
+            return None
+        else:
+            return 'This email domain is not accepted'
+    else:
+        return 'Invalid email format'
+
+
 def send_email(data):
     '''This function sends the form data via email'''
     email = data['email']
     subject = data['subject']
     message = data['message']
 
-    msg = Message(subject=f"New Portfolio Message From {email}", 
-                  sender='kehindeadekola96@gmail.com', 
-                  recipients=['kehindeadekola96@gmail.com'])
-    msg.body = f"Subject: {subject}\n\nMessage: {message}\n\nFrom: {email}"
+    email_validation_result = validate_email(email)
+    if email_validation_result is not None:
+        return render_template('contact.html', error=email_validation_result)
+    else:
+        msg = Message(subject=f"New Portfolio Message From {email}", 
+                    sender='kehindeadekola96@gmail.com', 
+                    recipients=['kehindeadekola96@gmail.com'])
+        msg.body = f"Subject: {subject}\n\nMessage: {message}\n\nFrom: {email}"
 
-    # This line of code sends the mail
-    mail.send(msg)
+        # This line of code sends the mail
+        mail.send(msg)
