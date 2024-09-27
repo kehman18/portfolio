@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-# Configure Flask-Mail
+
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
@@ -50,5 +50,5 @@ def send_email(data):
                   recipients=['kehindeadekola96@gmail.com'])
     msg.body = f"Subject: {subject}\n\nMessage: {message}\n\nFrom: {email}"
 
-    # Send the email
+    # This line of code sends the mail
     mail.send(msg)
