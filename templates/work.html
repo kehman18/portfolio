@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="description" name="description" />
     <meta name="google" content="notranslate" />
     <meta
@@ -24,6 +24,7 @@
       sizes="100x100"
       href="./static/assets/favicon.png"
     />
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -68,27 +69,21 @@
 
           <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a href="./index.html" title="">01 : Home</a></li>
-              <li><a href="./works.html" title="">02 : Works</a></li>
-              <li><a href="./about.html" title="">03 : About me</a></li>
-              <li><a href="./contact.html" title="">04 : Contact</a></li>
+              <li><a href="./index.html">01 : Home</a></li>
+              <li><a href="./works.html">02 : Works</a></li>
+              <li><a href="./about.html">03 : About me</a></li>
+              <li><a href="./contact.html">04 : Contact</a></li>
             </ul>
-
             <ul
               class="nav navbar-nav navbar-right navbar-small visible-md visible-lg"
             >
               <li>
-                <a href="./work.html?project=project1" title="" class="active"
-                  >001</a
-                >
+                <a href="./work.html?project=project1" class="active">001</a>
               </li>
-              <li><a href="./work.html?project=project2" title="">002</a></li>
-              <li><a href="./work.html?project=project3" title="">003</a></li>
-              <li><a href="./work.html?project=project4" title="">004</a></li>
-              <!--
-              <li><a href="./work.html?project=project5" title="">005</a></li>
-              <li><a href="./work.html?project=project6" title="">006</a></li>
-            --></ul>
+              <li><a href="./work.html?project=project2">002</a></li>
+              <li><a href="./work.html?project=project3">003</a></li>
+              <li><a href="./work.html?project=project4">004</a></li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -104,7 +99,6 @@
                 <h1 id="projectTitle" class="h2"></h1>
               </div>
               <p>
-                <br />
                 Category: <span id="projectCategory"></span> <br />
                 Project date: <span id="projectDate"></span> <br />
                 Project URL: <a id="projectURL" href=""></a>
@@ -121,16 +115,14 @@
           </div>
 
           <div class="col-md-8 col-md-offset-2 section-container-spacer">
-            <div id="secondaryImagesContainer" class="row">
-              <!-- Dynamic image elements will be inserted here -->
-            </div>
+            <div id="secondaryImagesContainer" class="row"></div>
           </div>
         </div>
       </div>
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function (event) {
+      document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
         const project = urlParams.get("project");
 
@@ -172,30 +164,17 @@
               "./static/assets/images/acct_img2.jpg",
             ],
           },
-          /*
           project4: {
-            title: "Link Shortener",
+            title: "Good Flow",
             category: "Web Development",
             date: "September 2024",
-            url: "https://link-short-8qfi.onrender.com",
+            url: "https://goodflow-qm7d.onrender.com/",
             mainImage: "./static/assets/images/work003-01.jpg",
             secondaryImages: [
-              "./static/assets/images/link_short1.jpg",
-              "./static/assets/images/link_short2.jpg",
+              "./static/assets/images/goodflow-1.jpg",
+              "./static/assets/images/goodflow-2.jpg",
             ],
           },
-          project5: {
-            title: "Blind Assist",
-            category: "Arificial Intelligence",
-            date: "September 2024",
-            url: "https://blind-assist-t7c8.onrender.com",
-            mainImage: "./static/assets/images/work003-01.jpg",
-            secondaryImages: [
-              "./static/assets/images/link_short1.jpg",
-              "./static/assets/images/link_short2.jpg",
-            ],
-          },
-          */
         };
 
         const selectedProject = projects[project];
@@ -213,7 +192,6 @@
           document.getElementById("mainImage").src = selectedProject.mainImage;
 
           const container = document.getElementById("secondaryImagesContainer");
-
           selectedProject.secondaryImages.forEach((imageSrc, index) => {
             const colDiv = document.createElement("div");
             colDiv.className = "col-xs-12 col-md-6";
@@ -239,14 +217,14 @@
 
     <script type="text/javascript" src="./static/main.70a66962.js"></script>
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
+    <noscript>
+      <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-M3XNJ35R"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
+      ></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
   </body>
 </html>
