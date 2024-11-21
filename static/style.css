@@ -1,3 +1,51 @@
-body {
-  background-color: green
+/* Keyframes for fade-in and slide effects */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animations for main image */
+#mainImage {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animations for secondary images */
+#secondaryImagesContainer img {
+  animation: slideUp 1s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+#secondaryImagesContainer img:hover {
+  transform: scale(1.05);
+}
+
+/* Animations for project title */
+#projectTitle {
+  animation: fadeIn 1.5s ease-in-out;
+  transition: color 0.3s ease-in-out;
+}
+
+#projectTitle:hover {
+  color: #ff5733; /* Highlight color on hover */
+}
+
+/* Animations for text */
+.card-container p,
+.card-container small {
+  animation: slideUp 1s ease-in-out;
 }

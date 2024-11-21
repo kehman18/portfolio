@@ -43,6 +43,10 @@
     <title>Kehinde Adekola</title>
 
     <link href="./static/main.3f6952e4.css" rel="stylesheet" />
+    <link
+      href="{{ url_for('static', filename='style.css') }}"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -127,17 +131,6 @@
         const project = urlParams.get("project");
 
         const projects = {
-          project1: {
-            title: "Link Shortener",
-            category: "Web Development",
-            date: "September 2024",
-            url: "https://link-short-8qfi.onrender.com",
-            mainImage: "./static/assets/images/work003-01.jpg",
-            secondaryImages: [
-              "./static/assets/images/link_short1.jpg",
-              "./static/assets/images/link_short2.jpg",
-            ],
-          },
           project2: {
             title: "Designs and Logos",
             category: "Graphic Design and Logo Making",
@@ -151,28 +144,6 @@
               "./static/assets/images/Des5.png",
               "./static/assets/images/Des6.png",
               "./static/assets/images/Des7.png",
-            ],
-          },
-          project3: {
-            title: "Acct Registration",
-            category: "Web Development",
-            date: "September 2024",
-            url: "https://acct-creation.onrender.com/",
-            mainImage: "./static/assets/images/work003-01.jpg",
-            secondaryImages: [
-              "./static/assets/images/acct_img1.jpg",
-              "./static/assets/images/acct_img2.jpg",
-            ],
-          },
-          project4: {
-            title: "Good Flow",
-            category: "Web Development",
-            date: "September 2024",
-            url: "https://goodflow-qm7d.onrender.com/",
-            mainImage: "./static/assets/images/work003-01.jpg",
-            secondaryImages: [
-              "./static/assets/images/goodflow-1.jpg",
-              "./static/assets/images/goodflow-2.jpg",
             ],
           },
         };
@@ -215,6 +186,10 @@
       });
     </script>
 
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='script.js') }}"
+    ></script>
     <script type="text/javascript" src="./static/main.70a66962.js"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
