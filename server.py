@@ -50,9 +50,12 @@ def resume_pdf():
         mimetype='application/pdf',
         download_name=DOWNLOAD_NAME
     )
-    # discourage caching the inline preview
+    # Existing cache headers...
     resp.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
     resp.headers["Pragma"] = "no-cache"
+    # Add these for iframe/PDF compatibility
+    resp.headers["X-Frame-Options"] = "SAMEORIGIN"  # Allows same-site iframes
+    resp.headers["Content-Disposition"] = f"inline; filename={DOWNLOAD_NAME}"
     return resp
 
 @app.route('/download-cv')
