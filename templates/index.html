@@ -40,16 +40,44 @@
 
     <link href="./static/main.3f6952e4.css" rel="stylesheet" />
 
-    <!-- Additional responsive styling -->
+    <!-- Responsive + Resume button styles -->
     <style>
       .background-image-container {
         background-size: cover;
         background-position: center;
       }
-
       .hero-full-wrapper h1 {
         font-size: 4vw;
         line-height: 1.2;
+      }
+
+      /* Resume button (white pill, dark text) */
+      a.btn-resume {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 22px;
+        border-radius: 9999px;
+        background: #fff;
+        color: #111 !important;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: transform 0.15s ease, opacity 0.15s ease;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        margin-top: 24px;
+      }
+      a.btn-resume:hover,
+      a.btn-resume:focus {
+        transform: translateY(-2px);
+        opacity: 0.95;
+      }
+      a.btn-resume:active {
+        transform: translateY(0);
+      }
+      a.btn-resume:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
       }
 
       @media (max-width: 767px) {
@@ -63,14 +91,15 @@
           padding: 10px 15px;
           font-size: 12px;
         }
+        a.btn-resume {
+          max-width: 260px;
+        } /* keep desktop-ish size on mobile */
       }
-
       @media (min-width: 768px) and (max-width: 991px) {
         .hero-full-wrapper h1 {
           font-size: 5vw;
         }
       }
-
       @media (min-width: 992px) {
         .hero-full-wrapper h1 {
           font-size: 3vw;
@@ -94,6 +123,7 @@
             data-toggle="collapse"
             data-target="#navbar-collapse"
             aria-expanded="false"
+            aria-label="Toggle navigation"
           >
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -107,6 +137,11 @@
               <li><a href="./works.html">02 : Works</a></li>
               <li><a href="./about.html">03 : About me</a></li>
               <li><a href="./contact.html">04 : Contact</a></li>
+              <li>
+                <a href="/download-cv" aria-label="Download resume"
+                  >05 : Resume</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -131,6 +166,15 @@
                   </span>
                   <span id="typed"></span>
                 </h1>
+
+                <!-- Simple download button (no preview on this page) -->
+                <a
+                  class="btn-resume"
+                  href="/download-cv"
+                  aria-label="Download Kehinde Adekola résumé"
+                >
+                  Download Résumé
+                </a>
               </div>
             </div>
           </div>
@@ -139,7 +183,7 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function (event) {
+      document.addEventListener("DOMContentLoaded", function () {
         type();
         movingBackgroundImage();
       });
